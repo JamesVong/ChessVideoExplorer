@@ -3,9 +3,10 @@ import cv2
 from pathlib import Path
 
 # Configuration Variables
-piece_name = "Empty"  # Set this to the piece type you're labeling: "King", "Queen", "Empty", etc.
+piece_name = "Knight" # Set this to the piece type you're labeling: "King", "Queen", "Empty", etc.
 skip_existing = True  # Set to True to skip files already labeled
-piece_exclude = ["Pawn"]
+piece_exclude = ["Empty", "Pawn", "King", "Queen", "Bishop", "Rook"]
+filename_exclude = ["-ZVbDR3sRRo"]
 
 # Key Bindings
 YES_KEY = ord('y')  # Press 'y' for Yes
@@ -18,7 +19,7 @@ dataset_dir = "dataset"
 
 def is_already_labeled(filename):
     """Check if the file is already labeled with the specified piece name."""
-    return piece_name in filename or any((n in filename) for n in piece_exclude)
+    return piece_name in filename or any((n in filename) for n in piece_exclude) or any((n in filename) for n in filename_exclude)
 
 def label_images():
     """Display images one by one for labeling and rename them based on user input."""
@@ -43,6 +44,7 @@ def label_images():
             index += 1
             continue
 
+        cv2.destroyAllWindows()
         cv2.imshow("Labeling Tool", image)
         print(f"Labeling {file}. Is this a {piece_name}? (y/n), go back (b)")
 
