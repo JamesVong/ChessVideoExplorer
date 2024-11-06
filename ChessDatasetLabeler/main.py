@@ -3,10 +3,10 @@ import cv2
 from pathlib import Path
 
 # Configuration Variables
-piece_name = "Knight" # Set this to the piece type you're labeling: "King", "Queen", "Empty", etc.
+piece_name = "Queen" # Set this to the piece type you're labeling: "King", "Queen", "Empty", etc.
 skip_existing = True  # Set to True to skip files already labeled
-piece_exclude = ["Empty", "Pawn", "King", "Queen", "Bishop", "Rook"]
-filename_exclude = ["-ZVbDR3sRRo"]
+piece_exclude = ["Empty", "Pawn", "Knight", "Rook", "Bishop", "King"]
+filename_exclude = ["-ZVbDR3sRRo", "3I_ESQVyxNc", "65VWIFlc4C4"]
 
 # Key Bindings
 YES_KEY = ord('y')  # Press 'y' for Yes
